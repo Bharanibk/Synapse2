@@ -1,0 +1,733 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sp1",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "e6e4334d-6cad-4cae-9595-1fde0031de1d"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"265cf672-29cc-4ccf-8c83-63b36d048057": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": [
+											{
+												"Quantity": 10,
+												"WWI Invoice ID": 8007,
+												"Stock Item Key": 205,
+												"Total Including Tax": 2760,
+												"Unit Price": 240,
+												"Description": "USB food flash drive - dessert 10 drive variety pack",
+												"Profit": 1515,
+												"Invoice Date Key": "2013-06-05",
+												"Tax Rate": 15,
+												"Salesperson Key": 19,
+												"Sale Key": 26017,
+												"Total Excluding Tax": 2400
+											},
+											{
+												"Quantity": 8,
+												"WWI Invoice ID": 4195,
+												"Stock Item Key": 69,
+												"Total Including Tax": 147.2,
+												"Unit Price": 16,
+												"Description": "Pack of 12 action figures (male)",
+												"Profit": 84,
+												"Invoice Date Key": "2013-03-26",
+												"Tax Rate": 15,
+												"Salesperson Key": 56,
+												"Sale Key": 13675,
+												"Total Excluding Tax": 128
+											}
+										],
+										"1": "1",
+										"2": "Tailspin Toys (Head Office)"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "a",
+										"type": "ArrayType(StructType(StructField(Description,StringType,true), StructField(Invoice Date Key,StringType,true), StructField(Profit,DoubleType,true), StructField(Quantity,LongType,true), StructField(Sale Key,LongType,true), StructField(Salesperson Key,LongType,true), StructField(Stock Item Key,LongType,true), StructField(Tax Rate,DoubleType,true), StructField(Total Excluding Tax,DoubleType,true), StructField(Total Including Tax,DoubleType,true), StructField(Unit Price,DoubleType,true), StructField(WWI Invoice ID,LongType,true)),true)"
+									},
+									{
+										"key": "1",
+										"name": "customerid",
+										"type": "bigint"
+									},
+									{
+										"key": "2",
+										"name": "name",
+										"type": "string"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"2"
+									],
+									"seriesFieldKeys": [
+										"1"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					},
+					"84476982-d470-4e3c-a03b-067cd12b3d4e": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "1",
+										"1": [
+											{
+												"Quantity": 10,
+												"WWI Invoice ID": 8007,
+												"Stock Item Key": 205,
+												"Total Including Tax": 2760,
+												"Unit Price": 240,
+												"Description": "USB food flash drive - dessert 10 drive variety pack",
+												"Profit": 1515,
+												"Invoice Date Key": "2013-06-05",
+												"Tax Rate": 15,
+												"Salesperson Key": 19,
+												"Sale Key": 26017,
+												"Total Excluding Tax": 2400
+											},
+											{
+												"Quantity": 8,
+												"WWI Invoice ID": 4195,
+												"Stock Item Key": 69,
+												"Total Including Tax": 147.2,
+												"Unit Price": 16,
+												"Description": "Pack of 12 action figures (male)",
+												"Profit": 84,
+												"Invoice Date Key": "2013-03-26",
+												"Tax Rate": 15,
+												"Salesperson Key": 56,
+												"Sale Key": 13675,
+												"Total Excluding Tax": 128
+											}
+										]
+									},
+									{
+										"0": "2",
+										"1": [
+											{
+												"Quantity": 6,
+												"WWI Invoice ID": 14807,
+												"Stock Item Key": 70,
+												"Total Including Tax": 110.4,
+												"Unit Price": 16,
+												"Description": "Pack of 12 action figures (variety)",
+												"Profit": 63,
+												"Invoice Date Key": "2013-10-14",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 47994,
+												"Total Excluding Tax": 96
+											}
+										]
+									},
+									{
+										"0": "1",
+										"1": [
+											{
+												"Quantity": 120,
+												"WWI Invoice ID": 4195,
+												"Stock Item Key": 82,
+												"Total Including Tax": 690,
+												"Unit Price": 5,
+												"Description": "Furry animal socks (Pink) S",
+												"Profit": 420,
+												"Invoice Date Key": "2013-03-26",
+												"Tax Rate": 15,
+												"Salesperson Key": 56,
+												"Sale Key": 13673,
+												"Total Excluding Tax": 600
+											},
+											{
+												"Quantity": 96,
+												"WWI Invoice ID": 7271,
+												"Stock Item Key": 82,
+												"Total Including Tax": 552,
+												"Unit Price": 5,
+												"Description": "Furry animal socks (Pink) S",
+												"Profit": 336,
+												"Invoice Date Key": "2013-05-23",
+												"Tax Rate": 15,
+												"Salesperson Key": 63,
+												"Sale Key": 23587,
+												"Total Excluding Tax": 480
+											},
+											{
+												"Quantity": 108,
+												"WWI Invoice ID": 11443,
+												"Stock Item Key": 82,
+												"Total Including Tax": 621,
+												"Unit Price": 5,
+												"Description": "Furry animal socks (Pink) S",
+												"Profit": 378,
+												"Invoice Date Key": "2013-08-06",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 37097,
+												"Total Excluding Tax": 540
+											},
+											{
+												"Quantity": 8,
+												"WWI Invoice ID": 3579,
+												"Stock Item Key": 156,
+												"Total Including Tax": 276,
+												"Unit Price": 30,
+												"Description": "RC vintage American toy coupe with remote control (Red) 1/50 scale",
+												"Profit": 120,
+												"Invoice Date Key": "2013-03-14",
+												"Tax Rate": 15,
+												"Salesperson Key": 36,
+												"Sale Key": 11653,
+												"Total Excluding Tax": 240
+											},
+											{
+												"Quantity": 6,
+												"WWI Invoice ID": 8471,
+												"Stock Item Key": 109,
+												"Total Including Tax": 207,
+												"Unit Price": 30,
+												"Description": "Superhero action jacket (Blue) M",
+												"Profit": 48,
+												"Invoice Date Key": "2013-06-14",
+												"Tax Rate": 15,
+												"Salesperson Key": 70,
+												"Sale Key": 27481,
+												"Total Excluding Tax": 180
+											},
+											{
+												"Quantity": 10,
+												"WWI Invoice ID": 9893,
+												"Stock Item Key": 63,
+												"Total Including Tax": 345,
+												"Unit Price": 30,
+												"Description": "10 mm Double sided bubble wrap 20m",
+												"Profit": 160,
+												"Invoice Date Key": "2013-07-09",
+												"Tax Rate": 15,
+												"Salesperson Key": 76,
+												"Sale Key": 32095,
+												"Total Excluding Tax": 300
+											},
+											{
+												"Quantity": 6,
+												"WWI Invoice ID": 14559,
+												"Stock Item Key": 107,
+												"Total Including Tax": 207,
+												"Unit Price": 30,
+												"Description": "Superhero action jacket (Blue) XL",
+												"Profit": 48,
+												"Invoice Date Key": "2013-10-08",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 47186,
+												"Total Excluding Tax": 180
+											},
+											{
+												"Quantity": 4,
+												"WWI Invoice ID": 11443,
+												"Stock Item Key": 148,
+												"Total Including Tax": 1058,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Pink) 1/12 scale",
+												"Profit": 340,
+												"Invoice Date Key": "2013-08-06",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 37100,
+												"Total Excluding Tax": 920
+											},
+											{
+												"Quantity": 3,
+												"WWI Invoice ID": 14559,
+												"Stock Item Key": 148,
+												"Total Including Tax": 793.5,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Pink) 1/12 scale",
+												"Profit": 255,
+												"Invoice Date Key": "2013-10-08",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 47185,
+												"Total Excluding Tax": 690
+											}
+										]
+									},
+									{
+										"0": "2",
+										"1": [
+											{
+												"Quantity": 4,
+												"WWI Invoice ID": 14807,
+												"Stock Item Key": 148,
+												"Total Including Tax": 1058,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Pink) 1/12 scale",
+												"Profit": 340,
+												"Invoice Date Key": "2013-10-14",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 47993,
+												"Total Excluding Tax": 920
+											},
+											{
+												"Quantity": 4,
+												"WWI Invoice ID": 2353,
+												"Stock Item Key": 152,
+												"Total Including Tax": 1058,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Red) 1/12 scale",
+												"Profit": 340,
+												"Invoice Date Key": "2013-02-19",
+												"Tax Rate": 15,
+												"Salesperson Key": 15,
+												"Sale Key": 7636,
+												"Total Excluding Tax": 920
+											}
+										]
+									},
+									{
+										"0": "1",
+										"1": [
+											{
+												"Quantity": 6,
+												"WWI Invoice ID": 4195,
+												"Stock Item Key": 152,
+												"Total Including Tax": 1587,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Red) 1/12 scale",
+												"Profit": 510,
+												"Invoice Date Key": "2013-03-26",
+												"Tax Rate": 15,
+												"Salesperson Key": 56,
+												"Sale Key": 13674,
+												"Total Excluding Tax": 1380
+											},
+											{
+												"Quantity": 7,
+												"WWI Invoice ID": 8213,
+												"Stock Item Key": 152,
+												"Total Including Tax": 1851.5,
+												"Unit Price": 230,
+												"Description": "Ride on toy sedan car (Red) 1/12 scale",
+												"Profit": 595,
+												"Invoice Date Key": "2013-06-10",
+												"Tax Rate": 15,
+												"Salesperson Key": 74,
+												"Sale Key": 26666,
+												"Total Excluding Tax": 1610
+											},
+											{
+												"Quantity": 216,
+												"WWI Invoice ID": 11443,
+												"Stock Item Key": 18,
+												"Total Including Tax": 1018.44,
+												"Unit Price": 4.1,
+												"Description": "Red and white urgent  heavy despatch tape  48mmx100m",
+												"Profit": 442.8,
+												"Invoice Date Key": "2013-08-06",
+												"Tax Rate": 15,
+												"Salesperson Key": 81,
+												"Sale Key": 37096,
+												"Total Excluding Tax": 885.6
+											},
+											{
+												"Quantity": 120,
+												"WWI Invoice ID": 8213,
+												"Stock Item Key": 23,
+												"Total Including Tax": 510.6,
+												"Unit Price": 3.7,
+												"Description": "Black and orange this way up despatch tape 48mmx75m",
+												"Profit": 240,
+												"Invoice Date Key": "2013-06-10",
+												"Tax Rate": 15,
+												"Salesperson Key": 74,
+												"Sale Key": 26670,
+												"Total Excluding Tax": 444
+											},
+											{
+												"Quantity": 144,
+												"WWI Invoice ID": 10603,
+												"Stock Item Key": 23,
+												"Total Including Tax": 612.72,
+												"Unit Price": 3.7,
+												"Description": "Black and orange this way up despatch tape 48mmx75m",
+												"Profit": 288,
+												"Invoice Date Key": "2013-07-20",
+												"Tax Rate": 15,
+												"Salesperson Key": 78,
+												"Sale Key": 34410,
+												"Total Excluding Tax": 532.8
+											}
+										]
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "customerid",
+										"type": "bigint"
+									},
+									{
+										"key": "1",
+										"name": "a",
+										"type": "ArrayType(StructType(StructField(Description,StringType,true), StructField(Invoice Date Key,StringType,true), StructField(Profit,DoubleType,true), StructField(Quantity,LongType,true), StructField(Sale Key,LongType,true), StructField(Salesperson Key,LongType,true), StructField(Stock Item Key,LongType,true), StructField(Tax Rate,DoubleType,true), StructField(Total Excluding Tax,DoubleType,true), StructField(Total Including Tax,DoubleType,true), StructField(Unit Price,DoubleType,true), StructField(WWI Invoice ID,LongType,true)),true)"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/38dbe249-ae8a-4b4d-a026-cc5934d90c27/resourceGroups/SyLAB/providers/Microsoft.Synapse/workspaces/bksynapse1/bigDataPools/sp1",
+				"name": "sp1",
+				"type": "Spark",
+				"endpoint": "https://bksynapse1.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sp1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 3,
+				"cores": 8,
+				"memory": 56,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "markdown",
+				"metadata": {
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"This notebook Reads a hierarcial Json file\r\n",
+					"uses EXPLODE to read all internal nodes, FLATTENs the json into a SALES data frame\r\n",
+					"creates a Sales and Sales Summary table in a Dedicated SQL POOL and inserts the Sales data read from Json into it"
+				],
+				"attachments": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"jupyter": {
+						"outputs_hidden": true
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://files@bksynapsestorage.dfs.core.windows.net/Customerdata2.json', format='json')\r\n",
+					"display(df.limit(1))"
+				],
+				"attachments": null,
+				"execution_count": 51
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df.printSchema()"
+				],
+				"attachments": null,
+				"execution_count": 17
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df.createOrReplaceTempView(\"samplesales\")"
+				],
+				"attachments": null,
+				"execution_count": 13
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"--select count(*) from samplesales\r\n",
+					"select * from samplesales LIMIT 5"
+				],
+				"attachments": null,
+				"execution_count": 16
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"data_path.printSchema()"
+				],
+				"attachments": null,
+				"execution_count": 23
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"from pyspark.sql.functions import udf, explode\r\n",
+					"\r\n",
+					"df2 = df.select('customerid','a')\r\n",
+					"\r\n",
+					"display(df2.limit(5))"
+				],
+				"attachments": null,
+				"execution_count": 52
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"from pyspark.sql.functions import udf, explode\r\n",
+					"\r\n",
+					"df2 = df.withColumn('Sales',explode('a')).select('customerid','name','Sales.Sale Key','Sales.Invoice Date Key','Sales.Salesperson Key'\r\n",
+					",'Sales.WWI Invoice ID','Sales.Description','Sales.Quantity','Sales.Unit Price','Sales.Tax Rate','Sales.Total Excluding Tax'\r\n",
+					",'Sales.Total Including Tax'\r\n",
+					",'Sales.Profit').orderBy('customerid')\r\n",
+					"\r\n",
+					"df2a = df2.withColumnRenamed('Sale Key', 'salekey').withColumnRenamed('Invoice Date Key', 'invoicedatekey').withColumnRenamed('Invoice Date Key', 'invoicedatekey').withColumnRenamed('Salesperson Key', 'salespersonkey').withColumnRenamed('WWI Invoice ID', 'wwiinvoiceid').withColumnRenamed('Unit Price', 'unitprice').withColumnRenamed('Tax Rate', 'taxrate').withColumnRenamed('Total Excluding Tax', 'totalexcludingtax').withColumnRenamed('Total Including Tax','totalincludingtax')\r\n",
+					"\r\n",
+					"df3 = df2.select('customerid','name').groupBy('customerid','name').count()\r\n",
+					"\r\n",
+					"df4 = df2a.join(df3,((df2a.customerid == df3.customerid) & (df2a.name == df3.name)))\r\n",
+					"\r\n",
+					"#df3 = df2.groupBy('customerid').sum('Quantity')\r\n",
+					"\r\n",
+					"#df5 = df4.select('customerid','count','name','salekey','invoicedatekey','salespersonkey','wwiinvoiceid','Description','Quantity','unitprice','taxrate','totalexcludingtax','totalincludingtax','Profit')\r\n",
+					"\r\n",
+					"display(df5.limit(5))"
+				],
+				"attachments": null,
+				"execution_count": 92
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"df3 = df2a.createOrReplaceTempView(\"Sales\")"
+				],
+				"attachments": null,
+				"execution_count": 78
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"\r\n",
+					"select * from Sales limit 5"
+				],
+				"attachments": null,
+				"execution_count": 79
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "scala"
+					}
+				},
+				"source": [
+					"%%spark\r\n",
+					"// Make sure the name of the SQL pool (SQLPool01 below) matches the name of your SQL pool.\r\n",
+					"val df4 = spark.sqlContext.sql(\"select * from Sales\")\r\n",
+					"df4.write.sqlanalytics(\"dedicatedsql1.dbo.Sales\", Constants.INTERNAL)"
+				],
+				"attachments": null,
+				"execution_count": 80
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					""
+				],
+				"attachments": null,
+				"execution_count": null
+			}
+		]
+	}
+}

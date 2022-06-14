@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "\nUse serverlessDB1\n\n\nCREATE EXTERNAL DATA SOURCE newsource WITH (\n    LOCATION = 'https://bksynapsestorage.blob.core.windows.net/files'\n);\n\nGO\n\nselect top 10 *\nfrom openrowset(\n    bulk 'https://bksynapsestorage.blob.core.windows.net/files/movies3.csv',\n    format = 'csv',\n    parser_version = '2.0',\n    firstrow = 2 ) as rows\n\n\nCREATE EXTERNAL FILE FORMAT CsvFormat2 WITH (\n    FORMAT_TYPE = DELIMITEDTEXT,\n    FORMAT_OPTIONS (\n      FIELD_TERMINATOR = ',',\n      STRING_DELIMITER = '\"',\n      FIRST_ROW = 2,\n      USE_TYPE_DEFAULT = FALSE,\n      ENCODING = 'UTF8' )\n);\nGO\n\n\n\nCREATE EXTERNAL TABLE movietable2\n(\n    Film varchar(100),\n    Genre varchar(100),\n    LeadStudio varchar(100),\n    Audiencescore int,\n    Profitability varchar(50),\n    RottenTomatoes    int,\n    WorldwideGross varchar(50),\n    Year int\n)  \nWITH (\n    LOCATION = '/movies3.csv',\n    DATA_SOURCE = newsource,  \n    FILE_FORMAT = CsvFormat2\n)\nGO\n\nSELECT TOP 1 * FROM movietable2",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "serverlessDB1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
