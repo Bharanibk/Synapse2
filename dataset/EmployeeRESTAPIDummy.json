@@ -1,0 +1,12 @@
+{
+	"name": "EmployeeRESTAPIDummy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Dummyservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
