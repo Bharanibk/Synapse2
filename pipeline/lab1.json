@@ -21,7 +21,7 @@
 						"requestInterval": "00.00:00:00.010",
 						"requestMethod": "GET",
 						"paginationRules": {
-							"": "true"
+							"supportRFC5988": "true"
 						}
 					},
 					"sink": {
@@ -37,7 +37,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "EmployeeRESTAPIDummy",
+						"referenceName": "RestResource1",
 						"type": "DatasetReference"
 					}
 				],
