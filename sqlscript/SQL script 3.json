@@ -2,7 +2,7 @@
 	"name": "SQL script 3",
 	"properties": {
 		"content": {
-			"query": "\nselect * from sys.external_tables\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Pa$$w0rdPa$$w0rd'\nGO\nCREATE DATABASE SCOPED CREDENTIAL [st]\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\n     SECRET = '?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupx&se=2023-06-13T06:33:08Z&st=2022-06-12T22:33:08Z&spr=https&sig=0roZjFqb0NBR%2F2LnYBalRLsn06ie6tpaFVxkwZSpWfo%3D';\nGO\n\nCREATE EXTERNAL DATA SOURCE DS1\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/input/employee/',\n          CREDENTIAL = st\n)",
+			"query": "\nselect * from sys.external_tables\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Pa$$w0rdPa$$w0rd'\nGO\nCREATE DATABASE SCOPED CREDENTIAL [st]\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\n     SECRET = '?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupx&se=2023-06-13T06:33:08Z&st=2022-06-12T22:33:08Z&spr=https&sig=0roZjFqb0NBR%2F2LnYBalRLsn06ie6tpaFVxkwZSpWfo%3D';\nGO\n\nCREATE EXTERNAL DATA SOURCE DS2\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/input',\n          CREDENTIAL = st\n)",
 			"metadata": {
 				"language": "sql"
 			},
