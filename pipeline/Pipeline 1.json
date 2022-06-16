@@ -139,7 +139,22 @@
 								"expression": {
 									"value": "@equals(activity('CurrentFile').output.structure,activity('GoodMovieTemplate').output.structure)",
 									"type": "Expression"
-								}
+								},
+								"ifFalseActivities": [
+									{
+										"name": "Fail1",
+										"type": "Fail",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"message": {
+												"value": "@concat(activity('CurrentFile').output.itemName,' error columnsconcat()')",
+												"type": "Expression"
+											},
+											"errorCode": "1"
+										}
+									}
+								]
 							}
 						}
 					]
