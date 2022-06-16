@@ -1,5 +1,5 @@
 {
-	"name": "lab1",
+	"name": "Json_Flatten",
 	"properties": {
 		"activities": [
 			{
@@ -69,7 +69,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Dataflow1",
+						"referenceName": "Json_flattenActivity",
 						"type": "DataFlowReference"
 					},
 					"compute": {

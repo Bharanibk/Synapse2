@@ -1,5 +1,5 @@
 {
-	"name": "Dataflow1",
+	"name": "Json_flattenActivity",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
