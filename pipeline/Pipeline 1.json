@@ -83,7 +83,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('AllNewmoviefiles').output.childItems\nactivity('Get Metadata1').output",
+						"value": "@activity('AllNewmoviefiles').output.childItems\n",
 						"type": "Expression"
 					},
 					"isSequential": true,
