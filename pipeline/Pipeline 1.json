@@ -99,7 +99,12 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
+							"userProperties": [
+								{
+									"name": "currentLoopFilename",
+									"value": "@item().name"
+								}
+							],
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "Newemployeefilesfolder",
@@ -112,7 +117,8 @@
 									}
 								},
 								"fieldList": [
-									"structure"
+									"structure",
+									"itemName"
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
@@ -174,7 +180,7 @@
 											"waitOnCompletion": true,
 											"parameters": {
 												"filename": {
-													"value": "@activity('CurrentFile').output.name",
+													"value": "@activity('CurrentFile').output.itemName",
 													"type": "Expression"
 												}
 											}
