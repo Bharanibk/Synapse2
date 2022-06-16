@@ -1,0 +1,22 @@
+{
+	"name": "Stage1EmployeeFolder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adls5005",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Stage1CuratedNewEmployeeFolder",
+				"fileSystem": "employee"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
