@@ -154,6 +154,32 @@
 											"errorCode": "111"
 										}
 									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "Execute stage1 pipline",
+										"type": "ExecutePipeline",
+										"dependsOn": [],
+										"userProperties": [
+											{
+												"name": "currentfilename",
+												"value": "@activity('CurrentFile').output.name"
+											}
+										],
+										"typeProperties": {
+											"pipeline": {
+												"referenceName": "Stage1_copy_pipeline",
+												"type": "PipelineReference"
+											},
+											"waitOnCompletion": true,
+											"parameters": {
+												"filename": {
+													"value": "@activity('CurrentFile').output.name",
+													"type": "Expression"
+												}
+											}
+										}
+									}
 								]
 							}
 						}
