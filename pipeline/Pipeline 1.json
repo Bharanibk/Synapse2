@@ -111,7 +111,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"structure"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"enablePartitionDiscovery": false
