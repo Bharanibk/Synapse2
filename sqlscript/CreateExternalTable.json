@@ -1,5 +1,5 @@
 {
-	"name": "SQL script 2",
+	"name": "CreateExternalTable",
 	"properties": {
 		"content": {
 			"query": "--select * from sys.external_tables\n\n\n\nif EXISTS (Select * from sys.external_tables where name='employeeET')\nDROP EXTERNAL TABLE \"employeeET\"\n\nif NOT EXISTS(Select * from sys.external_tables where name='employeeET')\nCREATE EXTERNAL TABLE [dbo].[employeeET]\n(\n\t [Id] INT,\n\t [Fullname] VARCHAR(1000),\n\t [Salary] INT,\n\t [Age] INT\n)\nWITH\n(\n\tLOCATION = '/employee/employeeschema.csv',\n\tDATA_SOURCE = [DS2],\n\tFILE_FORMAT = [CsvFormat2]\n)\nGO",

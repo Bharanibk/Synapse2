@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 3",
+	"name": "MasterKey_DataSources",
 	"properties": {
 		"content": {
-			"query": "\nselect * from sys.external_tables\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Pa$$w0rdPa$$w0rd'\nGO\nCREATE DATABASE SCOPED CREDENTIAL [st]\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\n     SECRET = '?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupx&se=2023-06-13T06:33:08Z&st=2022-06-12T22:33:08Z&spr=https&sig=0roZjFqb0NBR%2F2LnYBalRLsn06ie6tpaFVxkwZSpWfo%3D';\nGO\n\nCREATE EXTERNAL DATA SOURCE DS2\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/input',\n          CREDENTIAL = st\n)\n\nUSE SERVERLESSDB1\nCREATE EXTERNAL DATA SOURCE DS3\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/output',\n          CREDENTIAL = st\n)",
+			"query": "\nselect * from sys.external_tables\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Pa$$w0rdPa$$w0rd'\nGO\nCREATE DATABASE SCOPED CREDENTIAL [st]\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\n     SECRET = '?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupx&se=2023-06-13T06:33:08Z&st=2022-06-12T22:33:08Z&spr=https&sig=0roZjFqb0NBR%2F2LnYBalRLsn06ie6tpaFVxkwZSpWfo%3D';\nGO\n\nCREATE EXTERNAL DATA SOURCE DS2\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/input',\n          CREDENTIAL = st\n)\n\nUSE SERVERLESSDB1\nCREATE EXTERNAL DATA SOURCE DS3\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/output',\n          CREDENTIAL = st\n)\n\nCREATE EXTERNAL FILE FORMAT CsvFormat2 WITH (\n    FORMAT_TYPE = DELIMITEDTEXT,\n    FORMAT_OPTIONS (\n      FIELD_TERMINATOR = ',',\n      STRING_DELIMITER = '\"',\n      FIRST_ROW = 2,\n      USE_TYPE_DEFAULT = FALSE,\n      ENCODING = 'UTF8' )\n);\nGO",
 			"metadata": {
 				"language": "sql"
 			},

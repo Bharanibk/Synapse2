@@ -1,5 +1,5 @@
 {
-	"name": "Dataflow2",
+	"name": "MoviesAbove65_conditionalSplit",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {

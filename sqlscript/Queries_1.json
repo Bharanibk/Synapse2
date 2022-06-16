@@ -1,8 +1,8 @@
 {
-	"name": "SQL script 5",
+	"name": "Queries_1",
 	"properties": {
 		"content": {
-			"query": "select * from movieabove65ET",
+			"query": "--select top 100 * from movieabove65ET\n--select count(*) from movieabove65ET\n\nselect top 100 * from moviebelow65ET\nselect count(*) from moviebelow65ET",
 			"metadata": {
 				"language": "sql"
 			},
