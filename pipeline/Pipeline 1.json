@@ -148,7 +148,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"message": {
-												"value": "@concat(activity('CurrentFile').output.itemName,' error columnsconcat()')",
+												"value": "@activity('CurrentFile').output.itemName",
 												"type": "Expression"
 											},
 											"errorCode": "1"
