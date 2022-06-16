@@ -1,0 +1,56 @@
+{
+	"name": "movies33",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adls5005",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "movies33.csv",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Film",
+				"type": "String"
+			},
+			{
+				"name": "Genre",
+				"type": "String"
+			},
+			{
+				"name": "LeadStudio",
+				"type": "String"
+			},
+			{
+				"name": "Audiencescore",
+				"type": "String"
+			},
+			{
+				"name": "Profitability",
+				"type": "String"
+			},
+			{
+				"name": "RottenTomatoes",
+				"type": "String"
+			},
+			{
+				"name": "WorldwideGross",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			}
+		]
+	}
+}
