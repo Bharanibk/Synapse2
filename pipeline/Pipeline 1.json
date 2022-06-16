@@ -169,7 +169,7 @@
 										"userProperties": [
 											{
 												"name": "currentfilename",
-												"value": "@activity('CurrentFile').output.name"
+												"value": "@activity('CurrentFile').output.itemName"
 											}
 										],
 										"typeProperties": {
