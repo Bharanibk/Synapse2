@@ -1,0 +1,64 @@
+{
+	"name": "Lab3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Dataflow2",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [
+					{
+						"activity": "Data flow1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "serverlessDBLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "USE SERVERLESSDB1\n\nif EXISTS (Select * from sys.external_tables where name='movieabove65ET')\nDROP EXTERNAL TABLE \"movieabove65ET\"\n\nif NOT EXISTS(Select * from sys.external_tables where name='movieabove65ET')\nCREATE EXTERNAL TABLE [dbo].[movieabove65ET]\n(\n\t [FILM] VARCHAR(100),\n\t [GENRE] VARCHAR(50),\n\t [LEAD STUDIO] VARCHAR(75),\n\t [AUDIENCE SCORE] INT,\n\t [PROFITABILITY] DECIMAL,\n\t [ROTTEN TOMATOES] INT,\n\t [WORLD WIDE GROSS] MONEY,\n\t [YEAR] INT,\n)\nWITH\n(\n\tLOCATION = '/movies/above65/*.csv',\n\tDATA_SOURCE = [DS3],\n\tFILE_FORMAT = [CsvFormat2]\n)\n"
+						}
+					]
+				}
+			}
+		],
+		"annotations": []
+	}
+}
