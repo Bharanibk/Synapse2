@@ -19,7 +19,12 @@
 						"referenceName": "employeeshemaonly",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"structure",
+						"columnCount",
+						"exists",
+						"lastModified"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"enablePartitionDiscovery": false
@@ -30,7 +35,7 @@
 				}
 			},
 			{
-				"name": "NewMovieFile",
+				"name": "AllNewmoviefiles",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -40,7 +45,23 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"childItems"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
 			}
 		],
 		"annotations": []
