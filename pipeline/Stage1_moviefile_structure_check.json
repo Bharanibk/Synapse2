@@ -1,5 +1,5 @@
 {
-	"name": "Pipeline 1",
+	"name": "Stage1_moviefile_structure_check",
 	"properties": {
 		"activities": [
 			{
@@ -174,7 +174,7 @@
 										],
 										"typeProperties": {
 											"pipeline": {
-												"referenceName": "Stage1_copy_pipeline",
+												"referenceName": "Stage1_goodmoviefile_copy",
 												"type": "PipelineReference"
 											},
 											"waitOnCompletion": true,
