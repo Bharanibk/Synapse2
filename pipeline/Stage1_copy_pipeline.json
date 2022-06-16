@@ -20,6 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": false,
+							"modifiedDatetimeStart": "2022-06-16T00:00:00.874Z",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
