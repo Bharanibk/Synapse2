@@ -1,0 +1,44 @@
+{
+	"name": "Stage1EmployeeWSKeyFolder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adls5005",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Stage1CuratedNewEmployeeFolder/WithSKey",
+				"fileSystem": "employee"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "fullname",
+				"type": "String"
+			},
+			{
+				"name": "salary",
+				"type": "String"
+			},
+			{
+				"name": "age",
+				"type": "String"
+			},
+			{
+				"name": "skey",
+				"type": "String"
+			}
+		]
+	}
+}
