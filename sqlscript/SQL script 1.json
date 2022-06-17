@@ -2,7 +2,7 @@
 	"name": "SQL script 1",
 	"properties": {
 		"content": {
-			"query": "SELECT TOP (100) *\n FROM [dbo].[employeeET]\n\n\n select  COALESCE(max(Skey),0) as sKey\n  FROM [dbo].[employeeET]",
+			"query": "SELECT TOP (100) *\n FROM [dbo].[employeeET]\n\n\n select  COALESCE(max(SurrogateKey),0) as sKey\n  FROM [dbo].[employeeET]",
 			"metadata": {
 				"language": "sql"
 			},
