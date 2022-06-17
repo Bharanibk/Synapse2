@@ -1,5 +1,5 @@
 {
-	"name": "Stage1EmployeeFolder",
+	"name": "Stage1EmployeeRAWFolder",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "adls5005",
