@@ -53,6 +53,9 @@
 				},
 				{
 					"name": "exists1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -100,7 +103,17 @@
 				"HashPK, HashPK2 exists(HashPK@PKHash == HashPK2@PKHash,",
 				"     negate:true,",
 				"     broadcast: 'auto')~> exists1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"derivedColumn1 select(mapColumn(",
+				"          id,",
+				"          fullname,",
+				"          salary,",
+				"          age,",
+				"          sKey,",
+				"          surrogatekey",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as string,",
