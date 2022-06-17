@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [Id]\n,[Fullname]\n,[Salary]\n,[Age]\n,[Skey]\n FROM [dbo].[employeeET]\n\n\n select  COALESCE(max(Skey),0) as sKey\n  FROM [dbo].[employeeET]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "serverlessDB1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

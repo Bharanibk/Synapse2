@@ -1,9 +1,9 @@
 {
-	"name": "Stage1_moviefile_structure_check",
+	"name": "Stage1_employeefile_structure_check",
 	"properties": {
 		"activities": [
 			{
-				"name": "GoodMovieTemplate",
+				"name": "GoodEmployeeTemplate",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -27,6 +27,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -35,7 +36,7 @@
 				}
 			},
 			{
-				"name": "AllNewmoviefiles",
+				"name": "AllNewEmployeefiles",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -56,6 +57,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -64,17 +66,17 @@
 				}
 			},
 			{
-				"name": "NewMovieFiles",
+				"name": "NewEmployeeFiles",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "AllNewmoviefiles",
+						"activity": "AllNewEmployeefiles",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "GoodMovieTemplate",
+						"activity": "GoodEmployeeTemplate",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -122,6 +124,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -174,7 +177,7 @@
 										],
 										"typeProperties": {
 											"pipeline": {
-												"referenceName": "Stage1_goodmoviefile_copy",
+												"referenceName": "Stage1_goodemployeefile_copy",
 												"type": "PipelineReference"
 											},
 											"waitOnCompletion": true,
