@@ -99,7 +99,7 @@
 				}
 			},
 			{
-				"name": "Script1",
+				"name": "CreateExternalTable",
 				"type": "Script",
 				"dependsOn": [
 					{
