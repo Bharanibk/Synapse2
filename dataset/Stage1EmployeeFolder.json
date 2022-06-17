@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "Stage1CuratedNewEmployeeFolder/RAW",
+				"folderPath": "newEmployeefilesFolder",
 				"fileSystem": "employee"
 			},
 			"columnDelimiter": ",",
