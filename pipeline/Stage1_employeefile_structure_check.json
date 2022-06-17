@@ -85,7 +85,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('AllNewmoviefiles').output.childItems\n",
+						"value": "@activity('AllNewEmployeefiles').output.childItems\n",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -146,7 +146,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@equals(activity('CurrentFile').output.structure,activity('GoodMovieTemplate').output.structure)",
+									"value": "@equals(activity('CurrentFile').output.structure,activity('GoodEmployeeTemplate').output.structure)",
 									"type": "Expression"
 								},
 								"ifFalseActivities": [
