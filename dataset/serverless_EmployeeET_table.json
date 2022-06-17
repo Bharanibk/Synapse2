@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "serverless_EmployeeET_table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureServerlessSqlDatabase1",
