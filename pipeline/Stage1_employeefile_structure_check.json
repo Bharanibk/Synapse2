@@ -166,28 +166,66 @@
 								],
 								"ifTrueActivities": [
 									{
-										"name": "Execute stage1 pipline",
-										"type": "ExecutePipeline",
+										"name": "Copy data1",
+										"type": "Copy",
 										"dependsOn": [],
-										"userProperties": [
-											{
-												"name": "currentfilename",
-												"value": "@activity('CurrentFile').output.itemName"
-											}
-										],
+										"policy": {
+											"timeout": "7.00:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
 										"typeProperties": {
-											"pipeline": {
-												"referenceName": "Stage1_goodemployeefile_copy",
-												"type": "PipelineReference"
+											"source": {
+												"type": "DelimitedTextSource",
+												"storeSettings": {
+													"type": "AzureBlobFSReadSettings",
+													"recursive": false,
+													"wildcardFileName": {
+														"value": "@activity('CurrentFile').output.itemName",
+														"type": "Expression"
+													},
+													"enablePartitionDiscovery": false
+												},
+												"formatSettings": {
+													"type": "DelimitedTextReadSettings"
+												}
 											},
-											"waitOnCompletion": true,
-											"parameters": {
-												"filename": {
-													"value": "@activity('CurrentFile').output.itemName",
-													"type": "Expression"
+											"sink": {
+												"type": "DelimitedTextSink",
+												"storeSettings": {
+													"type": "AzureBlobFSWriteSettings"
+												},
+												"formatSettings": {
+													"type": "DelimitedTextWriteSettings",
+													"quoteAllText": true,
+													"fileExtension": ".txt"
+												}
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
 												}
 											}
-										}
+										},
+										"inputs": [
+											{
+												"referenceName": "DelimitedText2",
+												"type": "DatasetReference"
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "Stage1EmployeeRAWFolder",
+												"type": "DatasetReference"
+											}
+										]
 									}
 								]
 							}
