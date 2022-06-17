@@ -9,7 +9,7 @@
 						"referenceName": "Stage1EmployeeRAWFolder",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "source11"
 				},
 				{
 					"dataset": {
@@ -17,6 +17,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "source2"
+				},
+				{
+					"dataset": {
+						"referenceName": "serverless_EmployeeET_table",
+						"type": "DatasetReference"
+					},
+					"name": "source3"
 				}
 			],
 			"sinks": [
@@ -37,6 +44,15 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "HashPK"
+				},
+				{
+					"name": "HashPK2"
+				},
+				{
+					"name": "exists1"
 				}
 			],
 			"scriptLines": [
@@ -49,7 +65,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     purgeFiles: true) ~> source1",
+				"     purgeFiles: true) ~> source11",
 				"source(output(",
 				"          sKey as integer",
 				"     ),",
@@ -58,7 +74,19 @@
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     query: ' select  COALESCE(max(Skey),0) as sKey\\n  FROM [dbo].[employeeET]',",
 				"     format: 'query') ~> source2",
-				"source1, source2 join(1==1,",
+				"source(output(",
+				"          Id as integer,",
+				"          Fullname as string,",
+				"          Salary as integer,",
+				"          Age as integer,",
+				"          Skey as integer,",
+				"          SurrogateKey as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source3",
+				"exists1, source2 join(1==1,",
 				"     joinType:'cross',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
@@ -66,7 +94,12 @@
 				"join1 keyGenerate(output(surrogatekey as long),",
 				"     startAt: 1L,",
 				"     stepValue: 1L) ~> surrogateKey1",
-				"surrogateKey1 derive(surrogatekey = surrogatekey + sKey) ~> derivedColumn1",
+				"surrogateKey1 derive(surrogatekey = surrogateKey1@surrogatekey + source2@sKey) ~> derivedColumn1",
+				"source11 derive(PKHash = sha1(id,fullname)) ~> HashPK",
+				"source3 derive(PKHash = sha1(Id,Fullname)) ~> HashPK2",
+				"HashPK, HashPK2 exists(HashPK@PKHash == HashPK2@PKHash,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
