@@ -62,7 +62,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Stage1EmployeeFolder",
+						"referenceName": "Stage1EmployeeRAWFolder",
 						"type": "DatasetReference"
 					}
 				]
@@ -96,6 +96,38 @@
 						"computeType": "General"
 					},
 					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Script1",
+				"type": "Script",
+				"dependsOn": [
+					{
+						"activity": "AddSurrogateKeyDF",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "serverlessDBLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "if EXISTS (Select * from sys.external_tables where name='employeeET')\nDROP EXTERNAL TABLE \"employeeET\"\n\nif NOT EXISTS(Select * from sys.external_tables where name='employeeET')\nCREATE EXTERNAL TABLE [dbo].[employeeET]\n(\n\t [Id] INT,\n\t [Fullname] VARCHAR(1000),\n\t [Salary] INT,\n\t [Age] INT,\n\t [Skey] INT,\n\t [SurrogateKey] INT\n)\nWITH\n(\n\tLOCATION = '/Stage1CuratedNewEmployeeFolder/WithSKey/',\n\tDATA_SOURCE = [DS4],\n\tFILE_FORMAT = [CsvFormat2]\n)"
+						}
+					]
 				}
 			}
 		],
