@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Stage1EmployeeFolder",
+						"referenceName": "Stage1EmployeeRAWFolder",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
