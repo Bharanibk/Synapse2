@@ -1,13 +1,13 @@
 {
-	"name": "SQL script 1",
+	"name": "SCD_step_1",
 	"properties": {
 		"content": {
-			"query": "SELECT TOP (100) *\n FROM [dbo].[employeeET]\n\n\n select  COALESCE(max(SurrogateKey),0) as sKey\n  FROM [dbo].[employeeET]",
+			"query": "use` sqllogicaldw;\n\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Pa$$w0rdPa$$w0rd'\nGO\n\nCREATE DATABASE SCOPED CREDENTIAL [st]\nWITH IDENTITY = 'SHARED ACCESS SIGNATURE',\n     SECRET = '?sv=2021-06-08&ss=bfqt&srt=sco&sp=rwdlacupx&se=2023-06-13T06:33:08Z&st=2022-06-12T22:33:08Z&spr=https&sig=0roZjFqb0NBR%2F2LnYBalRLsn06ie6tpaFVxkwZSpWfo%3D';\nGO\n\nCREATE EXTERNAL DATA SOURCE EmployeeSource\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/stage/employee',\n          CREDENTIAL = st\n)\n\nCREATE EXTERNAL FILE FORMAT CsvFormat WITH (\n    FORMAT_TYPE = DELIMITEDTEXT,\n    FORMAT_OPTIONS (\n      FIELD_TERMINATOR = ',',\n      STRING_DELIMITER = '\"',\n      FIRST_ROW = 2,\n      USE_TYPE_DEFAULT = FALSE,\n      ENCODING = 'UTF8' )\n);\nGO\n\nCREATE SCHEMA LDW authorization dbo;\n\n--creates a scoped credential which uses Active Directory to authenticate with the Azure Storage account\nCREATE DATABASE SCOPED CREDENTIAL SynapseUserIdentity \nWITH IDENTITY = 'User Identity';\n\n--and finally sets the collation of the database to support UTF-8 data.\nALTER DATABASE sqllogicaldw COLLATE Latin1_General_100_BIN2_UTF8;\n",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "serverlessDB1",
+				"databaseName": "sqllogicaldw",
 				"poolName": "Built-in"
 			},
 			"resultLimit": 5000

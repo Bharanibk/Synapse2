@@ -1,0 +1,17 @@
+{
+	"name": "SCD_step_2",
+	"properties": {
+		"content": {
+			"query": "CREATE VIEW LDW.vwEmployees\nAS\nSELECT *,\nCAST(fct.filepath(3) AS DATE) AS FilePathDate\nFROM \nOPENROWSET \n(\n    BULK '*/*/*/*.csv',\n    DATA_SOURCE = 'EmployeeSource',\n\tFORMAT = 'CSV',\n    PARSER_VERSION = '2.0',\n    HEADER_ROW = TRUE,\n    FIELDTERMINATOR =','\n\n) AS fct",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

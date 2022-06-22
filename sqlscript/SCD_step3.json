@@ -1,0 +1,17 @@
+{
+	"name": "SCD_step3",
+	"properties": {
+		"content": {
+			"query": "CREATE SCHEMA STG AUTHORIZATION dbo;\n\nCREATE EXTERNAL FILE FORMAT SynapseParquetFormat\nWITH ( \n        FORMAT_TYPE = PARQUET\n     );\n\n     CREATE EXTERNAL DATA SOURCE EmployeeStageSource\nWITH (    LOCATION   = 'https://adls5005.dfs.core.windows.net/stage/employee',\n          CREDENTIAL = st\n)\n\nCREATE EXTERNAL TABLE STG.DIMEmployee\nWITH \n(\n  LOCATION = 'dimemployee/01',\n  DATA_SOURCE = EmployeeStageSource,\n  FILE_FORMAT = SynapseParquetFormat\n) \nAS\nSELECT cast(row_number() over (order by e.id asc) as int) as EmpllyeeID\n,e.fullname as FullName\n,cast(e.salary as MONEY) as Salary\n,cast(e.age as INT) as Age\n,CAST(e.FilePathDate as DATE) as FilePathDate\nFROM LDW.vwEmployees e\nORDER BY e.id\n\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

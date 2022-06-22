@@ -1,0 +1,17 @@
+{
+	"name": "temp",
+	"properties": {
+		"content": {
+			"query": "--select * from LDW.vwEmployees\n--where FilePathDate = '2022-06-22'\n\nselect * FROM STG.DIMEmployee",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
