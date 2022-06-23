@@ -1,0 +1,17 @@
+{
+	"name": "Create Dynamic View Procedure",
+	"properties": {
+		"content": {
+			"query": "CREATE or ALTER PROCEDURE RegisterView\n(@schemaname varchar(50),\n@tablename varchar(150),\n@lakeaccount varchar(50),\n@filepath varchar(250),\n@fileformat varchar(50))\nAS\nBEGIN\n\n    if ((select count(*) from sys.views s where s.name = @tablename) = 0 ) \n    BEGIN\n        declare @sql nvarchar(max) = \n        'CREATE OR ALTER VIEW '+@schemaname+'.'+@tablename+'\n        AS\n        SELECT \n            *\n        FROM\n            OPENROWSET(\n                BULK ''https://'+@lakeaccount+'.dfs.core.windows.net/'+@filepath+''',\n        FORMAT='''+@fileformat+''',PARSER_VERSION = ''2.0'',HEADER_ROW = TRUE\n        ) AS [result]'\n\n        exec sp_executesql @tsql = @sql\n    END\n\nEND",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
