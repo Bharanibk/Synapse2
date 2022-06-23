@@ -13,31 +13,16 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[cob].[selectEmployees]"
+				},
+				"linkedServiceName": {
+					"referenceName": "sqllogicaldwLS",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
-		"parameters": {
-			"schemaname": {
-				"type": "string",
-				"defaultValue": "COB"
-			},
-			"tablename": {
-				"type": "string",
-				"defaultValue": "vwEmployee"
-			},
-			"lakeaccount": {
-				"type": "string",
-				"defaultValue": "adls5005"
-			},
-			"filepath": {
-				"type": "string",
-				"defaultValue": "raw/land/masters/manual/employee/delta/2022/06/20/"
-			},
-			"fileformat": {
-				"type": "string",
-				"defaultValue": "CSV"
-			}
-		},
 		"annotations": []
 	}
 }

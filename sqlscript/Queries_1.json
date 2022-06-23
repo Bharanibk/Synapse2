@@ -2,12 +2,12 @@
 	"name": "Queries_1",
 	"properties": {
 		"content": {
-			"query": "--select top 100 * from movieabove65ET\n--select count(*) from movieabove65ET\n\nselect top 100 * from moviebelow65ET\nselect count(*) from moviebelow65ET",
+			"query": "--select top 100 * from movieabove65ET\n--select count(*) from movieabove65ET\n\nselect top 100 * from moviebelow65ET\nselect count(*) from moviebelow65ET\n\nselect * from sys.procedures\n\nexec selectEmployees\n\nCreate or alter procedure selectEmployees\nAS\nBegin\nselect * from [COB].[vwEmployee2]\nEnd",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"databaseName": "serverlessDB1",
+				"databaseName": "sqllogicaldw",
 				"poolName": "Built-in"
 			},
 			"resultLimit": 5000
