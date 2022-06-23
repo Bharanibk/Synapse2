@@ -1,0 +1,43 @@
+{
+	"name": "Pipeline 1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Stored procedure1",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
+			}
+		],
+		"parameters": {
+			"schemaname": {
+				"type": "string",
+				"defaultValue": "COB"
+			},
+			"tablename": {
+				"type": "string",
+				"defaultValue": "vwEmployee"
+			},
+			"lakeaccount": {
+				"type": "string",
+				"defaultValue": "adls5005"
+			},
+			"filepath": {
+				"type": "string",
+				"defaultValue": "raw/land/masters/manual/employee/delta/2022/06/20/"
+			},
+			"fileformat": {
+				"type": "string",
+				"defaultValue": "CSV"
+			}
+		},
+		"annotations": []
+	}
+}

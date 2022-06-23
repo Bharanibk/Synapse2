@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "\nDeclare @schemaname as VARCHAR(max) = 'COB',\n @tablename as varchar(max) = 'vwEmployee2'\n\n\n   if ((select count(*) from sys.views s where s.name = @tablename) = 1 ) \n    BEGIN\n        declare @dropsql nvarchar(max) = \n        'DROP VIEW ' +  @schemaname + '.' + @tablename\n        --print (@dropsql)\n         exec sp_executesql @tsql = @dropsql\n    END\n\n\n\n    ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
