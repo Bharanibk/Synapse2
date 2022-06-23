@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "exec RegisterView\n@schemaname = 'COB',\n@tablename = 'vwEmployee2',\n@lakeaccount = 'adls5005',\n@filepath = 'raw/land/masters/manual/employee/delta/2022/06/20/',\n@fileformat = 'CSV'",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqllogicaldw",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
