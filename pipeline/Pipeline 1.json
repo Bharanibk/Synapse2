@@ -15,14 +15,96 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[cob].[selectEmployees]"
+					"storedProcedureName": "[COB].[RegisterView]",
+					"storedProcedureParameters": {
+						"fileformat": {
+							"value": {
+								"value": "@pipeline().parameters.fileformat",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"filepath": {
+							"value": {
+								"value": "@pipeline().parameters.filepath",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"lakeaccount": {
+							"value": {
+								"value": "@pipeline().parameters.lakeaccount",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"schemaname": {
+							"value": {
+								"value": "@pipeline().parameters.schemaname",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"tablename": {
+							"value": {
+								"value": "@pipeline().parameters.tablename",
+								"type": "Expression"
+							},
+							"type": "String"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "sqllogicaldwLS",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Stored procedure1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"enableStaging": false
+				}
 			}
 		],
+		"parameters": {
+			"schemaname": {
+				"type": "string",
+				"defaultValue": "COB"
+			},
+			"tablename": {
+				"type": "string",
+				"defaultValue": "vwEmployee3"
+			},
+			"lakeaccount": {
+				"type": "string",
+				"defaultValue": "adls5005"
+			},
+			"filepath": {
+				"type": "string",
+				"defaultValue": "raw/land/masters/manual/employee/delta/2022/06/20/"
+			},
+			"fileformat": {
+				"type": "string",
+				"defaultValue": "CSV"
+			}
+		},
 		"annotations": []
 	}
 }
